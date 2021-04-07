@@ -71,6 +71,145 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-notes1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/04/07/notes1/" class="article-date">
+  <time class="dt-published" datetime="2021-04-07T08:41:02.364Z" itemprop="datePublished">2021-04-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Spring类"><a href="#Spring类" class="headerlink" title="Spring类"></a>Spring类</h1><table>
+<thead>
+<tr>
+<th align="left">构造器</th>
+<th align="left">说明</th>
+<th align="left">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">String()</td>
+<td align="left">创建一个空字符串对象</td>
+<td align="left">String str=new String()</td>
+</tr>
+<tr>
+<td align="left">String(String original)</td>
+<td align="left">用字符串直接量创建字符串对象</td>
+<td align="left">String str=new String(“newStr”)</td>
+</tr>
+<tr>
+<td align="left">String(char value[])</td>
+<td align="left">用字符数组创建一个字符串</td>
+<td align="left">char[] charArry={‘h’,’e’,’l’,’l’,’o’};String str=new String(charArry)</td>
+</tr>
+<tr>
+<td align="left">String(byte bytes[])</td>
+<td align="left">用字节数组创建一个字符串</td>
+<td align="left">byte[] bArry={104,101,108,108,111};String str=new String(bArry)</td>
+</tr>
+<tr>
+<td align="left">String(byte bytes[],String charsetNmae)</td>
+<td align="left">用字节数组和指定字符集创建</td>
+<td align="left">new String(str.getBytes(“gbk”),”gb2312”)</td>
+</tr>
+</tbody></table>
+<h2 id="字符串常用方法"><a href="#字符串常用方法" class="headerlink" title="字符串常用方法"></a>字符串常用方法</h2><table>
+<thead>
+<tr>
+<th align="center">常用方法</th>
+<th align="center">方法描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">length()</td>
+<td align="center">获取字符串中字符个数</td>
+</tr>
+<tr>
+<td align="center">charAt(index)</td>
+<td align="center">返回字符串中指定下标的字符</td>
+</tr>
+<tr>
+<td align="center">concat(str)</td>
+<td align="center">拼接字符串，返回一个新字符串对象</td>
+</tr>
+<tr>
+<td align="center">toUppreCase()</td>
+<td align="center">返回一个新字符串，所有字母大写</td>
+</tr>
+<tr>
+<td align="center">toLowerCase()</td>
+<td align="center">返回一个新字符串，所有字母小写</td>
+</tr>
+<tr>
+<td align="center">trim()</td>
+<td align="center">返回一个新字符串，去掉了两边空格</td>
+</tr>
+<tr>
+<td align="center">char[] toCharArry()</td>
+<td align="center">将此字符串转换为一个新的字符数组</td>
+</tr>
+<tr>
+<td align="center">indexOf(ch)</td>
+<td align="center">返回字符串中出现的第一个字符ch下标，没有匹配返回-1</td>
+</tr>
+<tr>
+<td align="center">indexOf(x)</td>
+<td align="center">返回字符串中出现的第一个字符串s的下标，没有匹配返回-1</td>
+</tr>
+<tr>
+<td align="center">substring(begin)</td>
+<td align="center">返回该字符串的子字符串，从begin下标到字符串结尾</td>
+</tr>
+<tr>
+<td align="center">substring(begin,end)</td>
+<td align="center">返回该字符串的子字符串，从begin下标到end</td>
+</tr>
+</tbody></table>
+<h3 id="增强版的字符串"><a href="#增强版的字符串" class="headerlink" title="增强版的字符串"></a>增强版的字符串</h3><ul>
+<li>StringBuffer/StringBuilder<br>与String类不同的是，StringBuffer和StringBuilder类的对象能够被多次修改，并且不产生新的未使用的对象<br>StringBuffer拼接字符串方法append();  <h6 id=""><a href="#" class="headerlink" title=""></a></h6><table>
+<thead>
+<tr>
+<th align="center">构造方法</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">StringBuffer</td>
+<td align="center">构建一个默认缓存为16的StringBuffer对象</td>
+</tr>
+<tr>
+<td align="center">StringBuffer(int capacity)</td>
+<td align="center">构建一个指定缓存容量的StringBuffer对象</td>
+</tr>
+<tr>
+<td align="center">StringBuffer(String str)</td>
+<td align="center">构建一个指定字符串值的StringBuffer对象</td>
+</tr>
+</tbody></table>
+</li>
+<li>方法&amp;&amp;说明  </li>
+</ul>
+<p>1.StrigBuffer append(String str)<br>  将指定的字符串追加到此字符序列<br>2.StrigBuffer reverse()<br>  反转字符序列<br>3.StrigBuffer void delete(int start, int end)<br>  移除此字符序列中的字符<br>4.StrigBuffer void insert(int offset,String str)<br>  将字符串str插入到字符序列中(多个重载方法)<br>5.StrigBuffer void replace(int start,int end,String str)<br>  使用给定字符串str替换字符序列中的字符<br>6.void setCharAt(int index, int char)<br>  在指定索引位置设定字符<br>7.int capacity()<br>  返回StringBuffer当前的缓存容量<br>8.void setLength(int newLength)<br>  设置StringBuffer的新长度<br>9.void trimToSize()<br>  如果缓冲区大于其当前的字符序列，那么它可能会调整大小，以便更加节省时间</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/04/07/notes1/" data-id="ckn77cjo10000j4veej5xfsrp" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-notes" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/04/07/notes/" class="article-date">
@@ -238,6 +377,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/04/07/notes1/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2021/04/07/notes/">(no title)</a>
