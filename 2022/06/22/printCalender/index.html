@@ -1,283 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>java程序 | pomeloisland</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="使用方法实现月历的打印">
-<meta property="og:type" content="article">
-<meta property="og:title" content="java程序">
-<meta property="og:url" content="http://example.com/2022/06/22/printCalender/index.html">
-<meta property="og:site_name" content="pomeloisland">
-<meta property="og:description" content="使用方法实现月历的打印">
-<meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-06-22T03:23:58.704Z">
-<meta property="article:modified_time" content="2021-10-24T11:05:34.038Z">
-<meta property="article:author" content="柚屿">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="pomeloisland" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+extends includes/layout.pug
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+block content
+  #post
+    if top_img === false
+      include includes/header/post-info.pug
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+    article#article-container.post-content!=page.content
+    include includes/post/post-copyright.pug
+    .tag_share
+      if (theme.post_meta.post.tags)
+        .post-meta__tag-list
+          each item, index in page.tags.data
+            a(href=url_for(item.path)).post-meta__tags #[=item.name]
+      include includes/third-party/share/index.pug
+        
+    if theme.reward.enable && theme.reward.QR_code
+      !=partial('includes/post/reward', {}, {cache: true})
 
-  
-<meta name="generator" content="Hexo 6.2.0"></head>
+    //- ad
+    if theme.ad && theme.ad.post
+      .ads-wrap!=theme.ad.post
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">pomeloisland</a>
-      </h1>
+    if theme.post_pagination
+      include includes/pagination.pug
+    if theme.related_post && theme.related_post.enable
+      != related_posts(page,site.posts)
+
+    if page.comments !== false && theme.comments && theme.comments.use
+      - var commentsJsLoad = true
+      !=partial('includes/third-party/comments/index', {}, {cache: true})
       
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">从入门到放弃</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main"><article id="post-printCalender" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/06/22/printCalender/" class="article-date">
-  <time class="dt-published" datetime="2022-06-22T03:23:58.704Z" itemprop="datePublished">2022-06-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      java程序
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="使用方法实现月历的打印"><a href="#使用方法实现月历的打印" class="headerlink" title="使用方法实现月历的打印"></a>使用方法实现月历的打印</h1><span id="more"></span>
-
-
-
-
-
-<ol>
-<li><p>由于静态变量的内存空间在程序退出之后才释放内存空间，为避免多次输入，此处需定义两个静态的全局变量year和month和一个全局数组dayOfMonth</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">printCalendar</span> &#123;</span><br><span class="line">    <span class="comment">/*year接收用户输入的年份*/</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">year</span> <span class="operator">=</span> Integer.MIN_VALUE;</span><br><span class="line">    <span class="comment">/*month接收用户输入的月份*/</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">month</span> <span class="operator">=</span> Integer.MIN_VALUE;</span><br><span class="line">    <span class="comment">/*数组dayOfMonth的元素下标和内容表示几月有几天</span></span><br><span class="line"><span class="comment">       例如，下标为1的内容是31表示1月有31天</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span>[] dayOfMonth = &#123;<span class="number">31</span>, <span class="number">28</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>&#125;;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        PrintCalendar();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>打印月历的核心算法(假设从1900开始)</p>
-<ul>
-<li>第一步用户输入年份和月份</li>
-<li>第二步计算1900-1-1到用户输入年份月份的总天数(year &#x3D; 2017,month &#x3D; 7 2017-1-1  判断用户输入的7月第一天是周几)<ul>
-<li>计算各年的天数</li>
-<li>计算各月的天数之和</li>
-</ul>
-</li>
-<li>第三步打印出年份和月份</li>
-<li>第四步打印月份的标题（星期一到星期日）</li>
-<li>第五步根据某月1日是星期几打印月历的内容</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">PrintCalendar</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="comment">//1.让用户输入年份和月份</span></span><br><span class="line">		InputYearAndMonth();</span><br><span class="line">		<span class="comment">//2.计算1900-1-1到用户输入年份月份的总天数(year = 2017,month = 7 2017-1-1)</span></span><br><span class="line">		<span class="comment">//2-1.计算各年的总天数</span></span><br><span class="line">		<span class="comment">//2-2.计算各月的天数之和</span></span><br><span class="line">		<span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> getSumDayOfYears();</span><br><span class="line">		sum += getSumDayOfMonth();</span><br><span class="line">		sum++;</span><br><span class="line">		System.out.println(sum % <span class="number">7</span>);</span><br><span class="line">		<span class="comment">//3.打印年份和月份（英文）</span></span><br><span class="line">		PrintMonthTitlre();</span><br><span class="line">		<span class="comment">//4.打印月份的标题（星期一到星期日）</span></span><br><span class="line">		<span class="comment">//5.根据某月1日是星期几打印月历的内容</span></span><br><span class="line">		PrintCalendarContent(sum % <span class="number">7</span>);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li><p>根据当月1号是周几打印月历的内容</p>
-<p><strong>注意：PrintCalenderContent(int dayOfWeek)方法参数dayOfWeek用数组存储下标从0开始，所以取值范围为0-6</strong></p>
-</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">PrintCalendarContent</span><span class="params">(<span class="type">int</span> dayOfWeek)</span> &#123;</span><br><span class="line">        <span class="comment">//注意：dayOfWeek取值范围是0-6</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">sepCount</span> <span class="operator">=</span> dayOfWeek - <span class="number">1</span>;<span class="comment">//\t的数量</span></span><br><span class="line">        <span class="keyword">if</span>(dayOfWeek == <span class="number">0</span>) &#123;</span><br><span class="line">            sepCount = <span class="number">6</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            sepCount = dayOfWeek - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; dayOfWeek - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            System.out.print(<span class="string">&quot;\t&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; dayOfMonth[month - <span class="number">1</span>]; i++) &#123;</span><br><span class="line">            System.out.print(i + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span>((dayOfWeek + i) % <span class="number">7</span> == <span class="number">0</span>)&#123;</span><br><span class="line">                System.out.println();</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;\t&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>确定月历排列顺序</li>
-</ol>
-<p><strong>month - 1:数组下标从0开始</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">PrintMonthTitlre</span><span class="params">()</span> &#123;</span><br><span class="line">       String[] monthNames = &#123;<span class="string">&quot;一月&quot;</span>, <span class="string">&quot;二月&quot;</span>, <span class="string">&quot;三月&quot;</span>, <span class="string">&quot;四月&quot;</span>, <span class="string">&quot;五月&quot;</span>, <span class="string">&quot;六月&quot;</span>, <span class="string">&quot;七月&quot;</span>, <span class="string">&quot;八月&quot;</span>,</span><br><span class="line">               <span class="string">&quot;九月&quot;</span>, <span class="string">&quot;十月&quot;</span>, <span class="string">&quot;十一月&quot;</span>, <span class="string">&quot;十二月&quot;</span>&#125;;</span><br><span class="line">       System.out.println(<span class="string">&quot;\t\t&quot;</span> + year + <span class="string">&#x27;\t&#x27;</span> + monthNames[month - <span class="number">1</span>]);</span><br><span class="line">       String[] weekdays = &#123;<span class="string">&quot;周日&quot;</span>, <span class="string">&quot;周一&quot;</span>, <span class="string">&quot;周二&quot;</span>, <span class="string">&quot;周三&quot;</span>, <span class="string">&quot;周四&quot;</span>, <span class="string">&quot;周五&quot;</span>, <span class="string">&quot;周六&quot;</span>&#125;;</span><br><span class="line">       <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; weekdays.length; i++) &#123;</span><br><span class="line">           System.out.print(weekdays[i] + <span class="string">&quot;\t&quot;</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       System.out.println();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>获得1900到year年的总天数</p>
-<p><strong>需要判断是否输入年份，若是没有输入或者输入错误给出错误提示</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">getSumDayOfYears</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">//需要判断用户是否已经输入了年份</span></span><br><span class="line">        <span class="keyword">if</span>(year == Integer.MIN_VALUE) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;年份错误！请重新输入年份和月份！&quot;</span>);</span><br><span class="line">            InputYearAndMonth();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1900</span>; i &lt; year; i++) &#123;</span><br><span class="line">            sum += <span class="number">365</span>;<span class="comment">//每一年累加365天</span></span><br><span class="line">            <span class="keyword">if</span>(isLeapYear(i)) &#123;</span><br><span class="line">                sum++;<span class="comment">//闰年多加一天</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>得到year年1月1号到year年month-1月最后一天的总天数</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">getSumDayOfMonth</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; month - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            sum += dayOfMonth[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//如果year年是闰年，并且month&gt;=3</span></span><br><span class="line">        <span class="keyword">if</span>(isLeapYear(year) &amp;&amp; month &gt;= <span class="number">3</span>) &#123;</span><br><span class="line">            sum++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>用来判断传入的year变量是不是闰年</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">isLeapYear</span><span class="params">(<span class="type">int</span> year)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> year % <span class="number">400</span> == <span class="number">0</span> || year % <span class="number">4</span> == <span class="number">0</span> &amp;&amp; year % <span class="number">100</span> != <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>接收用户输入的年份和月份</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">InputYearAndMonth</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">input</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        System.out.print(<span class="string">&quot;请输入年份：&quot;</span>);</span><br><span class="line">        year = input.nextInt();</span><br><span class="line">        System.out.print(<span class="string">&quot;请输入月份：&quot;</span>);</span><br><span class="line">        month = input.nextInt();</span><br><span class="line">        input.close();</span><br><span class="line">        input = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/06/22/printCalender/" data-id="cl4p17g2h0009b4vn2lh9584o" data-title="java程序" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2022/06/22/notes1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          java笔记
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2022/06/22/SpringCloud/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">SpringCloud</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2022/06/22/MybatisTwoDay/">mybatis笔记2</a>
-          </li>
-        
-          <li>
-            <a href="/2022/06/22/Spring/">Spring</a>
-          </li>
-        
-          <li>
-            <a href="/2022/06/22/notes/">java笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2022/06/22/notes1/">java笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2022/06/22/printCalender/">java程序</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2022 柚屿<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
