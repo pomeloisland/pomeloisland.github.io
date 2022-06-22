@@ -3,11 +3,11 @@
   <title>pomeloisland</title>
   
   
-  <link href="https://pomeloisland.github.io/atom.xml" rel="self"/>
+  <link href="http://example.com/atom.xml" rel="self"/>
   
-  <link href="https://pomeloisland.github.io/"/>
-  <updated>2022-06-22T04:51:48.633Z</updated>
-  <id>https://pomeloisland.github.io/</id>
+  <link href="http://example.com/"/>
+  <updated>2022-06-22T05:03:12.844Z</updated>
+  <id>http://example.com/</id>
   
   <author>
     <name>柚屿</name>
@@ -17,19 +17,18 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="https://pomeloisland.github.io/2022/06/22/SpringBoot+Vue/"/>
-    <id>https://pomeloisland.github.io/2022/06/22/SpringBoot+Vue/</id>
+    <title>SpringBoot+Vue</title>
+    <link href="http://example.com/2022/06/22/SpringBoot+Vue/"/>
+    <id>http://example.com/2022/06/22/SpringBoot+Vue/</id>
     <published>2022-06-22T04:47:04.341Z</published>
-    <updated>2022-06-22T04:51:48.633Z</updated>
+    <updated>2022-06-22T05:03:12.844Z</updated>
     
-    <content type="html"><![CDATA[<hr><h2 id="title-SpringBoot-Vue"><a href="#title-SpringBoot-Vue" class="headerlink" title="title:SpringBoot+Vue"></a>title:SpringBoot+Vue</h2><h1 id="SpringBoot-Vue"><a href="#SpringBoot-Vue" class="headerlink" title="SpringBoot+Vue"></a>SpringBoot+Vue</h1><h2 id="项目搭建"><a href="#项目搭建" class="headerlink" title="项目搭建"></a>项目搭建</h2><ol><li>新建一个SpringBoot项目，</li></ol>]]></content>
+    <content type="html"><![CDATA[<h1 id="SpringBoot-Vue"><a href="#SpringBoot-Vue" class="headerlink" title="SpringBoot+Vue"></a>SpringBoot+Vue</h1><h2 id="项目搭建"><a href="#项目搭建" class="headerlink" title="项目搭建"></a>项目搭建</h2><ol><li>新建一个SpringBoot项目，根据自己习惯设置项目名称以及jdk，作为依赖管理，删除其他文件</li></ol><p><img src="/./SpringBoot+Vue.assets/image-20220622125711782.png" alt="image-20220622125711782"></p><ol start="2"><li>删除其他依赖项，添加packaging作为父依赖管理</li></ol><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.7.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.pomeloisland<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>yeb_client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>yeb_client<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>yeb_client<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">java.version</span>&gt;</span>11<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure><p>3. </p>]]></content>
     
     
       
       
-    <summary type="html">&lt;hr&gt;
-&lt;h2 id=&quot;title-SpringBoot-Vue&quot;&gt;&lt;a href=&quot;#title-SpringBoot-Vue&quot; class=&quot;headerlink&quot; title=&quot;title:SpringBoot+Vue&quot;&gt;&lt;/a&gt;title:SpringBoot+Vue&lt;</summary>
+    <summary type="html">&lt;h1 id=&quot;SpringBoot-Vue&quot;&gt;&lt;a href=&quot;#SpringBoot-Vue&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot+Vue&quot;&gt;&lt;/a&gt;SpringBoot+Vue&lt;/h1&gt;&lt;h2 id=&quot;项目搭建&quot;&gt;&lt;a href=&quot;#项</summary>
       
     
     
@@ -39,8 +38,8 @@
   
   <entry>
     <title>mybatis笔记2</title>
-    <link href="https://pomeloisland.github.io/2022/06/22/MybatisTwoDay/"/>
-    <id>https://pomeloisland.github.io/2022/06/22/MybatisTwoDay/</id>
+    <link href="http://example.com/2022/06/22/MybatisTwoDay/"/>
+    <id>http://example.com/2022/06/22/MybatisTwoDay/</id>
     <published>2022-06-22T03:23:58.704Z</published>
     <updated>2021-10-24T11:07:04.063Z</updated>
     
@@ -56,8 +55,8 @@
   
   <entry>
     <title>Spring</title>
-    <link href="https://pomeloisland.github.io/2022/06/22/Spring/"/>
-    <id>https://pomeloisland.github.io/2022/06/22/Spring/</id>
+    <link href="http://example.com/2022/06/22/Spring/"/>
+    <id>http://example.com/2022/06/22/Spring/</id>
     <published>2022-06-22T03:23:58.704Z</published>
     <updated>2021-10-24T09:45:27.172Z</updated>
     
@@ -73,8 +72,8 @@
   
   <entry>
     <title>java笔记</title>
-    <link href="https://pomeloisland.github.io/2022/06/22/notes/"/>
-    <id>https://pomeloisland.github.io/2022/06/22/notes/</id>
+    <link href="http://example.com/2022/06/22/notes/"/>
+    <id>http://example.com/2022/06/22/notes/</id>
     <published>2022-06-22T03:23:58.704Z</published>
     <updated>2021-10-24T11:06:20.678Z</updated>
     
@@ -90,8 +89,8 @@
   
   <entry>
     <title>java笔记</title>
-    <link href="https://pomeloisland.github.io/2022/06/22/notes1/"/>
-    <id>https://pomeloisland.github.io/2022/06/22/notes1/</id>
+    <link href="http://example.com/2022/06/22/notes1/"/>
+    <id>http://example.com/2022/06/22/notes1/</id>
     <published>2022-06-22T03:23:58.704Z</published>
     <updated>2021-10-24T11:05:59.067Z</updated>
     
@@ -107,8 +106,8 @@
   
   <entry>
     <title>java程序</title>
-    <link href="https://pomeloisland.github.io/2022/06/22/printCalender/"/>
-    <id>https://pomeloisland.github.io/2022/06/22/printCalender/</id>
+    <link href="http://example.com/2022/06/22/printCalender/"/>
+    <id>http://example.com/2022/06/22/printCalender/</id>
     <published>2022-06-22T03:23:58.704Z</published>
     <updated>2021-10-24T11:05:34.038Z</updated>
     
@@ -124,8 +123,8 @@
   
   <entry>
     <title>SpringCloud</title>
-    <link href="https://pomeloisland.github.io/2022/06/22/SpringCloud/"/>
-    <id>https://pomeloisland.github.io/2022/06/22/SpringCloud/</id>
+    <link href="http://example.com/2022/06/22/SpringCloud/"/>
+    <id>http://example.com/2022/06/22/SpringCloud/</id>
     <published>2022-06-22T03:23:58.704Z</published>
     <updated>2022-06-22T03:27:20.153Z</updated>
     
@@ -141,8 +140,8 @@
   
   <entry>
     <title>SpringMVC</title>
-    <link href="https://pomeloisland.github.io/2022/06/22/SpringMVC/"/>
-    <id>https://pomeloisland.github.io/2022/06/22/SpringMVC/</id>
+    <link href="http://example.com/2022/06/22/SpringMVC/"/>
+    <id>http://example.com/2022/06/22/SpringMVC/</id>
     <published>2022-06-22T03:23:58.704Z</published>
     <updated>2021-10-24T08:32:44.080Z</updated>
     
@@ -158,8 +157,8 @@
   
   <entry>
     <title>JavaScript&amp;Vue</title>
-    <link href="https://pomeloisland.github.io/2022/06/22/JavaScript&amp;Vue/"/>
-    <id>https://pomeloisland.github.io/2022/06/22/JavaScript&amp;Vue/</id>
+    <link href="http://example.com/2022/06/22/JavaScript&amp;Vue/"/>
+    <id>http://example.com/2022/06/22/JavaScript&amp;Vue/</id>
     <published>2022-06-22T03:23:58.688Z</published>
     <updated>2021-12-15T12:10:15.528Z</updated>
     
@@ -175,8 +174,8 @@
   
   <entry>
     <title>MyBatisPlus</title>
-    <link href="https://pomeloisland.github.io/2022/06/22/MyBatisPlus/"/>
-    <id>https://pomeloisland.github.io/2022/06/22/MyBatisPlus/</id>
+    <link href="http://example.com/2022/06/22/MyBatisPlus/"/>
+    <id>http://example.com/2022/06/22/MyBatisPlus/</id>
     <published>2022-06-22T03:23:58.688Z</published>
     <updated>2022-06-22T03:29:28.735Z</updated>
     
@@ -192,8 +191,8 @@
   
   <entry>
     <title>java爬虫</title>
-    <link href="https://pomeloisland.github.io/2022/06/22/Jsoup/"/>
-    <id>https://pomeloisland.github.io/2022/06/22/Jsoup/</id>
+    <link href="http://example.com/2022/06/22/Jsoup/"/>
+    <id>http://example.com/2022/06/22/Jsoup/</id>
     <published>2022-06-22T03:23:58.688Z</published>
     <updated>2021-10-24T11:07:56.491Z</updated>
     
@@ -209,8 +208,8 @@
   
   <entry>
     <title>mybatis笔记2</title>
-    <link href="https://pomeloisland.github.io/2022/06/22/MybatisOneDay/"/>
-    <id>https://pomeloisland.github.io/2022/06/22/MybatisOneDay/</id>
+    <link href="http://example.com/2022/06/22/MybatisOneDay/"/>
+    <id>http://example.com/2022/06/22/MybatisOneDay/</id>
     <published>2022-06-22T03:23:58.688Z</published>
     <updated>2021-10-24T11:07:18.865Z</updated>
     
@@ -226,8 +225,8 @@
   
   <entry>
     <title>mybatis笔记</title>
-    <link href="https://pomeloisland.github.io/2022/06/22/Mybatis/"/>
-    <id>https://pomeloisland.github.io/2022/06/22/Mybatis/</id>
+    <link href="http://example.com/2022/06/22/Mybatis/"/>
+    <id>http://example.com/2022/06/22/Mybatis/</id>
     <published>2022-06-22T03:23:58.688Z</published>
     <updated>2021-10-24T11:07:38.847Z</updated>
     
@@ -243,8 +242,8 @@
   
   <entry>
     <title>javaweb(servlet)</title>
-    <link href="https://pomeloisland.github.io/2022/06/22/JavaWeb/JavaWeb/"/>
-    <id>https://pomeloisland.github.io/2022/06/22/JavaWeb/JavaWeb/</id>
+    <link href="http://example.com/2022/06/22/JavaWeb/JavaWeb/"/>
+    <id>http://example.com/2022/06/22/JavaWeb/JavaWeb/</id>
     <published>2022-06-22T03:23:58.363Z</published>
     <updated>2021-10-24T11:34:27.349Z</updated>
     
