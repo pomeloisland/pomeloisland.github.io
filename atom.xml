@@ -3,11 +3,11 @@
   <title>pomeloisland</title>
   
   <subtitle>从入门到放弃</subtitle>
-  <link href="https://pomeloisland.github.io/project/atom.xml" rel="self"/>
+  <link href="https://pomeloisland.github.io/atom.xml" rel="self"/>
   
-  <link href="https://pomeloisland.github.io/project/"/>
+  <link href="https://pomeloisland.github.io/"/>
   <updated>2021-10-24T09:45:27.172Z</updated>
-  <id>https://pomeloisland.github.io/project/</id>
+  <id>https://pomeloisland.github.io/</id>
   
   <author>
     <name>柚屿</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Spring</title>
-    <link href="https://pomeloisland.github.io/project/2022/06/22/Spring/"/>
-    <id>https://pomeloisland.github.io/project/2022/06/22/Spring/</id>
+    <link href="https://pomeloisland.github.io/2022/06/22/Spring/"/>
+    <id>https://pomeloisland.github.io/2022/06/22/Spring/</id>
     <published>2022-06-22T03:23:58.704Z</published>
     <updated>2021-10-24T09:45:27.172Z</updated>
     
@@ -35,8 +35,8 @@
   
   <entry>
     <title>mybatis笔记2</title>
-    <link href="https://pomeloisland.github.io/project/2022/06/22/MybatisTwoDay/"/>
-    <id>https://pomeloisland.github.io/project/2022/06/22/MybatisTwoDay/</id>
+    <link href="https://pomeloisland.github.io/2022/06/22/MybatisTwoDay/"/>
+    <id>https://pomeloisland.github.io/2022/06/22/MybatisTwoDay/</id>
     <published>2022-06-22T03:23:58.704Z</published>
     <updated>2021-10-24T11:07:04.063Z</updated>
     
@@ -52,8 +52,8 @@
   
   <entry>
     <title>java笔记</title>
-    <link href="https://pomeloisland.github.io/project/2022/06/22/notes/"/>
-    <id>https://pomeloisland.github.io/project/2022/06/22/notes/</id>
+    <link href="https://pomeloisland.github.io/2022/06/22/notes/"/>
+    <id>https://pomeloisland.github.io/2022/06/22/notes/</id>
     <published>2022-06-22T03:23:58.704Z</published>
     <updated>2021-10-24T11:06:20.678Z</updated>
     
@@ -69,8 +69,8 @@
   
   <entry>
     <title>java笔记</title>
-    <link href="https://pomeloisland.github.io/project/2022/06/22/notes1/"/>
-    <id>https://pomeloisland.github.io/project/2022/06/22/notes1/</id>
+    <link href="https://pomeloisland.github.io/2022/06/22/notes1/"/>
+    <id>https://pomeloisland.github.io/2022/06/22/notes1/</id>
     <published>2022-06-22T03:23:58.704Z</published>
     <updated>2021-10-24T11:05:59.067Z</updated>
     
@@ -86,8 +86,8 @@
   
   <entry>
     <title>SpringCloud</title>
-    <link href="https://pomeloisland.github.io/project/2022/06/22/SpringCloud/"/>
-    <id>https://pomeloisland.github.io/project/2022/06/22/SpringCloud/</id>
+    <link href="https://pomeloisland.github.io/2022/06/22/SpringCloud/"/>
+    <id>https://pomeloisland.github.io/2022/06/22/SpringCloud/</id>
     <published>2022-06-22T03:23:58.704Z</published>
     <updated>2022-06-22T03:27:20.153Z</updated>
     
@@ -103,8 +103,8 @@
   
   <entry>
     <title>SpringMVC</title>
-    <link href="https://pomeloisland.github.io/project/2022/06/22/SpringMVC/"/>
-    <id>https://pomeloisland.github.io/project/2022/06/22/SpringMVC/</id>
+    <link href="https://pomeloisland.github.io/2022/06/22/SpringMVC/"/>
+    <id>https://pomeloisland.github.io/2022/06/22/SpringMVC/</id>
     <published>2022-06-22T03:23:58.704Z</published>
     <updated>2021-10-24T08:32:44.080Z</updated>
     
@@ -120,8 +120,8 @@
   
   <entry>
     <title>java程序</title>
-    <link href="https://pomeloisland.github.io/project/2022/06/22/printCalender/"/>
-    <id>https://pomeloisland.github.io/project/2022/06/22/printCalender/</id>
+    <link href="https://pomeloisland.github.io/2022/06/22/printCalender/"/>
+    <id>https://pomeloisland.github.io/2022/06/22/printCalender/</id>
     <published>2022-06-22T03:23:58.704Z</published>
     <updated>2021-10-24T11:05:34.038Z</updated>
     
@@ -137,8 +137,8 @@
   
   <entry>
     <title>java爬虫</title>
-    <link href="https://pomeloisland.github.io/project/2022/06/22/Jsoup/"/>
-    <id>https://pomeloisland.github.io/project/2022/06/22/Jsoup/</id>
+    <link href="https://pomeloisland.github.io/2022/06/22/Jsoup/"/>
+    <id>https://pomeloisland.github.io/2022/06/22/Jsoup/</id>
     <published>2022-06-22T03:23:58.688Z</published>
     <updated>2021-10-24T11:07:56.491Z</updated>
     
@@ -154,8 +154,8 @@
   
   <entry>
     <title>JavaScript&amp;Vue</title>
-    <link href="https://pomeloisland.github.io/project/2022/06/22/JavaScript&amp;Vue/"/>
-    <id>https://pomeloisland.github.io/project/2022/06/22/JavaScript&amp;Vue/</id>
+    <link href="https://pomeloisland.github.io/2022/06/22/JavaScript&amp;Vue/"/>
+    <id>https://pomeloisland.github.io/2022/06/22/JavaScript&amp;Vue/</id>
     <published>2022-06-22T03:23:58.688Z</published>
     <updated>2021-12-15T12:10:15.528Z</updated>
     
@@ -171,8 +171,8 @@
   
   <entry>
     <title>MyBatisPlus</title>
-    <link href="https://pomeloisland.github.io/project/2022/06/22/MyBatisPlus/"/>
-    <id>https://pomeloisland.github.io/project/2022/06/22/MyBatisPlus/</id>
+    <link href="https://pomeloisland.github.io/2022/06/22/MyBatisPlus/"/>
+    <id>https://pomeloisland.github.io/2022/06/22/MyBatisPlus/</id>
     <published>2022-06-22T03:23:58.688Z</published>
     <updated>2022-06-22T03:29:28.735Z</updated>
     
@@ -188,8 +188,8 @@
   
   <entry>
     <title>mybatis笔记</title>
-    <link href="https://pomeloisland.github.io/project/2022/06/22/Mybatis/"/>
-    <id>https://pomeloisland.github.io/project/2022/06/22/Mybatis/</id>
+    <link href="https://pomeloisland.github.io/2022/06/22/Mybatis/"/>
+    <id>https://pomeloisland.github.io/2022/06/22/Mybatis/</id>
     <published>2022-06-22T03:23:58.688Z</published>
     <updated>2021-10-24T11:07:38.847Z</updated>
     
@@ -205,8 +205,8 @@
   
   <entry>
     <title>mybatis笔记2</title>
-    <link href="https://pomeloisland.github.io/project/2022/06/22/MybatisOneDay/"/>
-    <id>https://pomeloisland.github.io/project/2022/06/22/MybatisOneDay/</id>
+    <link href="https://pomeloisland.github.io/2022/06/22/MybatisOneDay/"/>
+    <id>https://pomeloisland.github.io/2022/06/22/MybatisOneDay/</id>
     <published>2022-06-22T03:23:58.688Z</published>
     <updated>2021-10-24T11:07:18.865Z</updated>
     
@@ -222,8 +222,8 @@
   
   <entry>
     <title>javaweb(servlet)</title>
-    <link href="https://pomeloisland.github.io/project/2022/06/22/JavaWeb/JavaWeb/"/>
-    <id>https://pomeloisland.github.io/project/2022/06/22/JavaWeb/JavaWeb/</id>
+    <link href="https://pomeloisland.github.io/2022/06/22/JavaWeb/JavaWeb/"/>
+    <id>https://pomeloisland.github.io/2022/06/22/JavaWeb/JavaWeb/</id>
     <published>2022-06-22T03:23:58.363Z</published>
     <updated>2021-10-24T11:34:27.349Z</updated>
     
