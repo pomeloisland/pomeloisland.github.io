@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>java爬虫 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="爬虫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java爬虫">
+<meta property="og:url" content="http://example.com/2022/06/22/Jsoup/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="爬虫">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-06-22T03:23:58.688Z">
+<meta property="article:modified_time" content="2021-10-24T11:07:56.491Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Jsoup" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/06/22/Jsoup/" class="article-date">
+  <time class="dt-published" datetime="2022-06-22T03:23:58.688Z" itemprop="datePublished">2022-06-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      java爬虫
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h1><span id="more"></span>
+
+<p><strong>数据问题？数据库获取，消息队列获取，都可以成为数据源，爬虫！</strong></p>
+<p>爬取数据：（获取请求返回的页面信息，筛选出我们想要的数据就可以了！）</p>
+<p>jsoup包！解析网页</p>
+<p>导入依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.jsoup<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jsoup<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.10.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>爬虫工具类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HtmlParseUtil</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">HtmlParseUtil</span>().parseJD(<span class="string">&quot;java&quot;</span>).forEach(System.out::println);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> List&lt;Content&gt; <span class="title function_">parseJD</span><span class="params">(String keywords)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="comment">//获取请求 https://search.jd.com/Search?keyword=java</span></span><br><span class="line">        <span class="comment">//前提，需要联网，ajax 不能获取到</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> <span class="string">&quot;https://search.jd.com/Search?keyword=&quot;</span>+keywords;</span><br><span class="line">        <span class="comment">//解析网页(Jsoup返回的Document就是浏览器Document对象)</span></span><br><span class="line">        <span class="type">Document</span> <span class="variable">parse</span> <span class="operator">=</span> Jsoup.parse(<span class="keyword">new</span> <span class="title class_">URL</span>(url), <span class="number">30000</span>);</span><br><span class="line">        <span class="comment">//所有在js中可以使用的方法，都可以使用</span></span><br><span class="line">        <span class="type">Element</span> <span class="variable">element</span> <span class="operator">=</span> parse.getElementById(<span class="string">&quot;J_goodsList&quot;</span>);</span><br><span class="line">        <span class="comment">//找到所有的li元素</span></span><br><span class="line">        <span class="type">Elements</span> <span class="variable">li</span> <span class="operator">=</span> element.getElementsByTag(<span class="string">&quot;li&quot;</span>);</span><br><span class="line"></span><br><span class="line">        ArrayList&lt;Content&gt; goodsList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="comment">//获取元素中的内容,el就是每一个li标签了！</span></span><br><span class="line">        <span class="keyword">for</span> (Element el : li) &#123;</span><br><span class="line">            <span class="comment">//关于图片特别多的网站，所有的图片都是延迟加载的！</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">img</span> <span class="operator">=</span> el.getElementsByTag(<span class="string">&quot;img&quot;</span>).eq(<span class="number">0</span>).attr(<span class="string">&quot;source-data-lazy-img&quot;</span>);</span><br><span class="line">            <span class="type">String</span> <span class="variable">price</span> <span class="operator">=</span> el.getElementsByClass(<span class="string">&quot;p-price&quot;</span>).eq(<span class="number">0</span>).text();</span><br><span class="line">            <span class="type">String</span> <span class="variable">title</span> <span class="operator">=</span> el.getElementsByClass(<span class="string">&quot;p-name&quot;</span>).eq(<span class="number">0</span>).text();</span><br><span class="line">            <span class="type">Content</span> <span class="variable">content</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Content</span>();</span><br><span class="line">            content.setTitle(title);</span><br><span class="line">            content.setImg(img);</span><br><span class="line">            content.setPrice(price);</span><br><span class="line">            goodsList.add(content);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> goodsList;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/06/22/Jsoup/" data-id="cl4p17g260000b4vnfutl2mgm" data-title="java爬虫" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/06/22/SpringMVC/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          SpringMVC
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/06/22/JavaScript&Vue/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript&amp;Vue</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/06/22/MybatisTwoDay/">mybatis笔记2</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/22/Spring/">Spring</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/22/notes/">java笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/22/notes1/">java笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/22/printCalender/">java程序</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

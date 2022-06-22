@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>mybatis笔记2 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="学习Mybatis的第二天">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mybatis笔记2">
+<meta property="og:url" content="http://example.com/2022/06/22/MybatisTwoDay/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="学习Mybatis的第二天">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/MybatisTwoDay/1569657659080.png">
+<meta property="og:image" content="d:/github/pomeloisland/source_posts/MybatisTwoDay.assets/1569660357745.png">
+<meta property="og:image" content="http://example.com/MybatisTwoDay/1569660357745.png">
+<meta property="article:published_time" content="2022-06-22T03:23:58.704Z">
+<meta property="article:modified_time" content="2021-10-24T11:07:04.063Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/MybatisTwoDay/1569657659080.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-MybatisTwoDay" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/06/22/MybatisTwoDay/" class="article-date">
+  <time class="dt-published" datetime="2022-06-22T03:23:58.704Z" itemprop="datePublished">2022-06-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      mybatis笔记2
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="学习Mybatis的第二天"><a href="#学习Mybatis的第二天" class="headerlink" title="学习Mybatis的第二天"></a>学习Mybatis的第二天</h1><span id="more"></span>
+
+
+
+
+
+<h2 id="1、配置解析"><a href="#1、配置解析" class="headerlink" title="1、配置解析"></a>1、配置解析</h2><h3 id="1、核心配置文件"><a href="#1、核心配置文件" class="headerlink" title="1、核心配置文件"></a>1、核心配置文件</h3><ol>
+<li><p>核心文件mybatis-config.xml。</p>
+</li>
+<li><p>Mybatis的配置文件包含了深深影响Mybatis行为设置和属性信息。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> configuration（配置）</span><br><span class="line">properties（属性）</span><br><span class="line">settings（设置）</span><br><span class="line">typeAliases（类型别名）</span><br><span class="line">typeHandlers（类型处理器）</span><br><span class="line">objectFactory（对象工厂）</span><br><span class="line">plugins（插件）</span><br><span class="line">environments（环境配置）</span><br><span class="line">environment（环境变量）</span><br><span class="line">transactionManager（事务管理器）</span><br><span class="line">dataSource（数据源）</span><br><span class="line">databaseIdProvider（数据库厂商标识）</span><br><span class="line">mappers（映射器）</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="2、环境配置-environments"><a href="#2、环境配置-environments" class="headerlink" title="2、环境配置(environments)"></a>2、环境配置(environments)</h3><p>Mybatis可以适配多个环境，<strong>尽管可以配置多个环境，但是每个SqlSessionFactory实例只能选择一种环境。</strong></p>
+<p>Mybatis的默认的事务管理器：JDBC          连接池：POOLED</p>
+<h3 id="3、属性-properties"><a href="#3、属性-properties" class="headerlink" title="3、属性(properties)"></a>3、属性(properties)</h3><p>通过properties属性来实现引用配置文件</p>
+<p>所有的属性都可外部配置且可动态替换，既可以在典型的Java属性文件中配置，亦可以在properties元素的子元素来传递。【xxx.properties】</p>
+<p><strong>在xml中，所有的标签都可以规定顺序</strong></p>
+<ul>
+<li><p>编写一个配置文件</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">driver</span>=<span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="attr">url</span>=<span class="string">jdbc:mysql://localhost:3306/mybatis?serverTimezone=UTC&amp;useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8</span></span><br><span class="line"><span class="attr">username</span>=<span class="string">zhwroot</span></span><br><span class="line"><span class="attr">password</span>=<span class="string">zhwroot</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在核心配置文件中映入</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--属性优化--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span> <span class="attr">resource</span>=<span class="string">&quot;db.properties&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>可直接引入外部文件</li>
+<li>可以在其中增减一些属性配置</li>
+<li>如果文件中有两个相同的字段，优先使用外部文件中的！外部文件优先级最高</li>
+</ol>
+</li>
+</ul>
+<h3 id="4、类型别名-typeAliases"><a href="#4、类型别名-typeAliases" class="headerlink" title="4、类型别名(typeAliases)"></a>4、类型别名(typeAliases)</h3><ul>
+<li><p>类型别名是为Java类型设置一个短的名字</p>
+</li>
+<li><p>存在的意义仅用来减少类完全限定名的冗余</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--名称优化,实体类别名--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">typeAliases</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">typeAlias</span> <span class="attr">type</span>=<span class="string">&quot;com.pomeloisland.pojo.User&quot;</span> <span class="attr">alias</span>=<span class="string">&quot;User&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">typeAliases</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>也可以指定一个包名，Mybatis会在指定的包下面搜索需要的Java Bean，比如：</p>
+<p>扫描实体类的包，他的默认别名就为这个类的类名，首字母小写！</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--可以给实体类起别名--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">typeAliases</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">&quot;com.kuang.pojo&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">typeAliases</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在实体类少的时候用第一种。</p>
+<p>如果实体类十分多，建议使用第二种。</p>
+<p>第一种可以DIY别名，第二种则不行，如果非要该，则需要在实体上加上注解。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Alias(&quot;user&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> &#123;&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="5、设置"><a href="#5、设置" class="headerlink" title="5、设置"></a>5、设置</h3><p>Mybatis中一种极为重要的调整设置，它们会改变Mybatis运行时的行为。</p>
+<p><img src="/./MybatisTwoDay/1569657659080.png" alt="1569657659080"></p>
+<h3 id="6、其他配置"><a href="#6、其他配置" class="headerlink" title="6、其他配置"></a>6、其他配置</h3><ul>
+<li>typeHandlers(类型处理器)</li>
+<li>objectFactory(对象工厂)</li>
+<li>plugins插件<ul>
+<li>mybatis-generator-core</li>
+<li>mybatis-plus</li>
+<li>通用mapper</li>
+</ul>
+</li>
+</ul>
+<h3 id="7、映射器"><a href="#7、映射器" class="headerlink" title="7、映射器"></a>7、映射器</h3><p>MapperRegistry:注册绑定我们的Mapper文件。	</p>
+<p>方式一：【推荐使用】</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--每一个Mapper.XML都需要在Mybatis核心配置文件中注册！--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">resource</span>=<span class="string">&quot;com/kuang/dao/UserMapper.xml&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>方式二：使用class文件绑定注册</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--每一个Mapper.XML都需要在Mybatis核心配置文件中注册！--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">class</span>=<span class="string">&quot;com.kuang.dao.UserMapper&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意点：</strong></p>
+<ul>
+<li>接口和他的Mapper文件必须同名</li>
+<li>接口和它的Mapper配置文件必须在同一个包下！</li>
+</ul>
+<p>方式三：使用扫描包进行绑定</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--每一个Mapper.XML都需要在Mybatis核心配置文件中注册！--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">&quot;com.kuang.dao&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意点：</strong></p>
+<ul>
+<li>接口和他的Mapper文件必须同名</li>
+<li>接口和它的Mapper配置文件必须在同一个包下！</li>
+</ul>
+<p>项目建立之后具体执行步骤：</p>
+<ul>
+<li>将数据库配置文件外部引入</li>
+<li>实体类别名</li>
+<li>保证UserMapper 接口 和 UserMapper .xml 改为一致！并且放在同一个包下！</li>
+</ul>
+<h3 id="8、生命周期和作用域"><a href="#8、生命周期和作用域" class="headerlink" title="8、生命周期和作用域"></a>8、生命周期和作用域</h3><p><img src="D:\github\pomeloisland\source_posts\MybatisTwoDay.assets\1569660357745.png"></p>
+<p>生命周期和作用域至关重要，错误的使用会导致非常严重的<strong>并发问题</strong>。</p>
+<p><strong>SqlSessionFactoryBuilder：</strong></p>
+<ul>
+<li>一旦创建了SqlSessionFactory，就不需要他了</li>
+<li>局部变量</li>
+</ul>
+<p><strong>SqlSessionFactory：</strong></p>
+<ul>
+<li>可以想象为数据库连接池</li>
+<li>SqlSessionFactory一旦被创建就应该在应用的运行期间一直存在，<strong>没有任何理由将他丢弃或者重新创建一个实例</strong>。</li>
+<li>SqlSessionFactory的最佳作用域就是应用的作用域。</li>
+<li>最简单的就是使用单例模式或者静态单例模式。</li>
+</ul>
+<p><strong>SqlSession</strong></p>
+<ul>
+<li><p>连接到连接池的请求！</p>
+</li>
+<li><p>SqlSession 的实例不是线程安全的，因此是不能被共享的，所以它的最佳的作用域是请求或方法作用域。</p>
+</li>
+<li><p>用完之后需要赶紧关闭，否则资源被占用！</p>
+<p><img src="/./MybatisTwoDay/1569660357745.png" alt="1569660357745"></p>
+</li>
+</ul>
+<p>这里面的每一个Mapper，就代表一个具体的业务！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/06/22/MybatisTwoDay/" data-id="cl4p17g2c0003b4vn64q3c1gb" data-title="mybatis笔记2" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/06/22/Spring/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Spring</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/06/22/MybatisTwoDay/">mybatis笔记2</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/22/Spring/">Spring</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/22/notes/">java笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/22/notes1/">java笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/22/printCalender/">java程序</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
